@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Simple chemical formula extension for Markdown. 
-Python 3 code. Adapting to Python 2 would require using unicode literals instead of string.
 
 It formats chemical equations, written in simple text form, automatically detecting when the number is subscript or not. It also supports superscripts, though with less readable syntax. Equation must be enclosed in {}.
 
