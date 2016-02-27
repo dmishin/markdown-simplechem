@@ -42,9 +42,9 @@ import re
 from markdown.util import etree
 
 class SimpleChem(Pattern):
-    def __init__(self, *args, spanClass = "simplechem", **kwargs):
+    def __init__(self, *args, **kwargs):
         super(SimpleChem, self).__init__( "\\{([^}]*)\\}", *args, **kwargs)
-        self.spanClass = spanClass
+        self.spanClass = kwargs.get("spanClass", "simplechem")
     def handleMatch(self, m):
         tag = parseFormula(m.group(2))
         if self.spanClass is not None:
