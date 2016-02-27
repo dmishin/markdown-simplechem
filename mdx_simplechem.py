@@ -118,7 +118,6 @@ def parseFormula( text ):
             del textBuffer[:]
 
     def appendText(text, tag=None):
-        assert isinstance(text, str)
         if tag is None:
             textBuffer.append(text)
         else:
