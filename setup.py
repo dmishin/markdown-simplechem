@@ -7,7 +7,7 @@ Markdown Simple Chemistry Extension Distutils Setup
 
 :website: https://github.com/dmishin/markdown-simplechem
 :copyright: Copyright 2016 Dmitry Shintyakov
-:license: MIT, see LICENSE for details.
+:license: MIT, see LICENSE.MIT for details.
 """
 
 from setuptools import setup
@@ -45,7 +45,7 @@ setup(
         'Development Status :: 5 - Production/Stable',
         'Environment :: Console',
         'Intended Audience :: Developers',
-        'License :: OSI Approved :: BSD License',
+        'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
         'Programming Language :: Python :: 2',
         'Programming Language :: Python :: 2.6',
