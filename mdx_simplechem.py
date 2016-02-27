@@ -66,6 +66,7 @@ TOK_CHAR = 5
 #Tokenizer rules: (token regexp,  group number, token type)
 formulaTokens = \
 [ (r"[0-9\.][0-9\./]*",    0, TOK_NUM),
+  (r"\?",                  0, TOK_NUM), #single question mark is a numer
   (r"[a-zA-Z]+",   0, TOK_NAME),
   (r"\^\((.+?)\)", 1, TOK_SUPER),
   (r"\^(\S)",      1, TOK_SUPER), #superscript with single character

@@ -37,5 +37,12 @@ class SimplechemTest(unittest.TestCase):
         expected= '<p>Fractions: <span class="simplechem">1/2H<sub>2</sub> + 0.5Cl<sub>2</sub></span></p>'
         result = markdown(text, extensions=['mdx_simplechem'])
         self.assertEqual(expected, result)
+    def test_questionmark(self):
+        """Single question mark should be treated as a numer too"""
+        text = "Question: {?H2O + ?H?O4}"
+        expected = '<p>Question: <span class="simplechem">?H<sub>2</sub>O + ?H<sub>?</sub>O<sub>4</sub></span></p>'
+        result = markdown(text, extensions=['mdx_simplechem'])
+        self.assertEqual(expected, result)
+        
         
     
