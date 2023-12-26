@@ -6,7 +6,6 @@ Markdown Simple Chemistry Extension Tests
 :copyright: Copyright 2016 Dmitry Shintyakov
 :license: MIT, see LICENSE for details.
 """
-from __future__ import unicode_literals
 import unittest
 from markdown import markdown
 

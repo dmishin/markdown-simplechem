@@ -32,7 +32,7 @@ Examples
 --------
 
 	>>> import markdown
-	>>> md = markdown.Markdown(extensions=['simplechem'])
+	>>> md = markdown.Markdown(extensions=['mdx_simplechem'])
 	>>> md.convert('This is sugar: {C6H12O6}')
 	'<p>This is sugar: <span class="simplechem">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span></p>'
 

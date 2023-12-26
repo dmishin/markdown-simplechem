@@ -35,11 +35,10 @@ Examples:
 >>> md.convert('Fractions: {1/2H2 + 0.5Cl2}')
 '<p>Fractions: <span class="simplechem">1/2H<sub>2</sub> + 0.5Cl<sub>2</sub></span></p>'
 """
-from __future__ import unicode_literals #support for python 2
 from markdown.extensions import Extension
 from  markdown.inlinepatterns import Pattern
 import re
-from markdown.util import etree
+import xml.etree.ElementTree as etree
 
 class SimpleChem(Pattern):
     def __init__(self, *args, **kwargs):
@@ -52,8 +51,8 @@ class SimpleChem(Pattern):
         return tag
     
 class SimpleChemExtension(Extension):
-    def extendMarkdown(self, md, md_globals):
-        md.inlinePatterns.add('simplechem', SimpleChem(md), "<not_strong")
+    def extendMarkdown(self, md):
+        md.inlinePatterns.register(SimpleChem(), 'simplechem', 175)
         
 def makeExtension(**kwargs): return SimpleChemExtension(**kwargs)
 
