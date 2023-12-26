@@ -26,7 +26,7 @@ with codec_open(path.join(HERE, 'DESCRIPTION.md'), encoding='utf-8') as f:
 setup(
     name='MarkdownSimplechem',
 
-    version='1.0.0',  # PEP 440 Compliant Semantic Versioning
+    version='1.1.0',  # PEP 440 Compliant Semantic Versioning
 
     keywords='text filter markdown html chemistry',
     description='Python-Markdown extension to allow for convenient formatting of chemical equations.',
@@ -38,7 +38,7 @@ setup(
     url='https://github.com/dmishin/markdown-simplechem',
 
     py_modules=['mdx_simplechem'],
-    install_requires=['Markdown>=2.4'],
+    install_requires=['Markdown>=3.0'],
 
     license='MIT License',
     classifiers=[
@@ -47,9 +47,6 @@ setup(
         'Intended Audience :: Developers',
         'License :: OSI Approved :: MIT License',
         'Operating System :: OS Independent',
-        'Programming Language :: Python :: 2',
-        'Programming Language :: Python :: 2.6',
-        'Programming Language :: Python :: 2.7',
         'Programming Language :: Python :: 3',
         'Programming Language :: Python :: 3.2',
         'Programming Language :: Python :: 3.3',

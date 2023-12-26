@@ -1,12 +1,14 @@
 MarkdownSimplechem
 ==================
-Simple chemical formula extension for Markdown.
+Support for chemical equations in Python-Markdown.
 
-Formats chemical equations, written in simple text form, automatically detecting when the number is subscript or not. It also supports superscripts, though with less readable syntax.
+Formats chemical equations, written in simple text form, automatically detecting 
+when the number is subscript or not. It also supports superscripts, though with
+less readable syntax.
 
 Syntax
 ------
-Equation must be enclosed in {}.
+Chemical equation must be enclosed in {}. For example, {H2O} is a water molecule.
 
 ### Subscripts:
 Detected automatically. In {3H2O}, only '2' is turned to subscript.
@@ -26,6 +28,12 @@ Additionally, following special characters are available:
 * <->  pair of arrows "⇄"
 * <>   equilibrium arrow "⇌" 
 * hnu  hν
+
+Installation
+------------
+Install using `pip`:
+
+    pip install git+https://github.com/dmishin/markdown-simplechem.git
 
 
 Examples
