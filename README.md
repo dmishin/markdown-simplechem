@@ -35,6 +35,24 @@ Install using `pip`:
 
     pip install git+https://github.com/dmishin/markdown-simplechem.git
 
+Configuration
+-------------
+The extension has 2 configuration options:
+
+* 'class'::str - CSS class to use for the span element enclosing the formula. Default is 'simplechem'.
+* 'prefix'::str - prefix to use for chemical equations. Default is '', that is no prefix.
+
+By default, there is no prefix, and any text enclosed in `{}` is considered to be a chemical equation.
+This could cause conflicts with other extensions and template engines, which also use `{}` for their own purposes.
+To avoid this, it is possible to configure a prefix, which will be used to detect chemical equations.
+
+For example, to use 'chem' prefix, before creating Markdown object, do this:
+    
+    md = markdown.Markdown(extensions=['mdx_simplechem'],
+                           extension_configs={'mdx_simplechem': {'prefix': 'chem', 
+                                                                 'class': 'chem'}})
+
+Then, chemical equations will be detected like this: `chem{H2O}`.
 
 Examples
 --------

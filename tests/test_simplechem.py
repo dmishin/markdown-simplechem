@@ -11,10 +11,24 @@ from markdown import markdown
 
 
 class SimplechemTest(unittest.TestCase):
+    def test_custom_prefix(self):
+        text = 'Without prefix: {C2H5OH} and with: chem{C2H5OH}'
+        expected= '<p>Without prefix: {C2H5OH} and with: <span class="simplechem">C<sub>2</sub>H<sub>5</sub>OH</span></p>'
+        result = markdown(text,
+                          extensions=['mdx_simplechem'],
+                          extension_configs={'mdx_simplechem': {'prefix': 'chem'}})
+        self.assertEqual(expected, result)
+
     def test_simple(self):
         text = 'This is sugar: {C6H12O6}'
         expected= '<p>This is sugar: <span class="simplechem">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span></p>'
         result = markdown(text, extensions=['mdx_simplechem'])
+        self.assertEqual(expected, result)
+    def test_config_class(self):
+        text = 'This is sugar: {C6H12O6}'
+        expected= '<p>This is sugar: <span class="custom">C<sub>6</sub>H<sub>12</sub>O<sub>6</sub></span></p>'
+        result = markdown(text, extensions=['mdx_simplechem'],
+                          extension_configs={'mdx_simplechem': {'class': 'custom'}})
         self.assertEqual(expected, result)
     def test_smart_subscript_and_special(self):
         text = 'Smart subscript and special chars: {2KOH + H2SO4 -> K2SO4 + H2O}'

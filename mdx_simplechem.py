@@ -36,23 +36,33 @@ Examples:
 '<p>Fractions: <span class="simplechem">1/2H<sub>2</sub> + 0.5Cl<sub>2</sub></span></p>'
 """
 from markdown.extensions import Extension
-from  markdown.inlinepatterns import Pattern
+from markdown.inlinepatterns import Pattern
 import re
 import xml.etree.ElementTree as etree
 
+
 class SimpleChem(Pattern):
-    def __init__(self, *args, **kwargs):
-        super(SimpleChem, self).__init__( "\\{([^}]*)\\}", *args, **kwargs)
-        self.spanClass = kwargs.get("spanClass", "simplechem")
+    def __init__(self, prefix="", cssclass="simplechem"):
+        super(SimpleChem, self).__init__( re.escape(prefix)+r"\{([^}]*)\}")
+        self._class = cssclass
+
     def handleMatch(self, m):
         tag = parseFormula(m.group(2))
-        if self.spanClass is not None:
-            tag.attrib['class'] = self.spanClass
+        if self._class:
+            tag.attrib['class'] = self._class
         return tag
     
 class SimpleChemExtension(Extension):
+    def __init__(self, **kwargs):
+        self.config = {
+            'class': ["simplechem", "CSS class to assign to the span element"],
+            'prefix': ["", "Prefix to use for the curly braces"]
+        }
+        super(SimpleChemExtension, self).__init__(**kwargs)
     def extendMarkdown(self, md):
-        md.inlinePatterns.register(SimpleChem(), 'simplechem', 175)
+        md.inlinePatterns.register(SimpleChem(prefix=self.config['prefix'][0],
+                                              cssclass=self.config['class'][0]),
+                                   'simplechem', 175)
         
 def makeExtension(**kwargs): return SimpleChemExtension(**kwargs)
 

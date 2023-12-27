@@ -26,7 +26,7 @@ with codec_open(path.join(HERE, 'DESCRIPTION.md'), encoding='utf-8') as f:
 setup(
     name='MarkdownSimplechem',
 
-    version='1.1.0',  # PEP 440 Compliant Semantic Versioning
+    version='1.2.0',  # PEP 440 Compliant Semantic Versioning
 
     keywords='text filter markdown html chemistry',
     description='Python-Markdown extension to allow for convenient formatting of chemical equations.',
